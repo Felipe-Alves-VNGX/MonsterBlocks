@@ -1,4 +1,4 @@
-import { getSetting } from "./utilities.js";
+import { getSetting, MODULE_ID } from "./utilities.js";
 
 /**
  * @typedef FlagDetails
@@ -9,7 +9,7 @@ import { getSetting } from "./utilities.js";
  */
 
 export default class Flags {
-	static get scope() { return "monsterblock"; }
+        static get scope() { return MODULE_ID; }
 
 	/**
 	 * The details of each flag/setting 

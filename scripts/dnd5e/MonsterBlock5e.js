@@ -1,5 +1,5 @@
 import { MenuItem, MenuTree } from "../MenuTree.js";
-import { debug, ContentEditableAdapter, getTranslationArray, castType, isDndV4OrNewer } from "../utilities.js";
+import { debug, ContentEditableAdapter, getTranslationArray, castType, isDndV4OrNewer, MODULE_ID } from "../utilities.js";
 import { inputExpression } from "../../input-expressions/handler.js";
 import ItemPrep from "./ItemPrep.js";
 import Flags from "./Flags5e.js";
@@ -31,9 +31,13 @@ export default class MonsterBlock5e extends dnd5e.applications.actor.ActorSheet5
 		this.prepMenus();
 	}
 
-	get template() {
-		return "modules/monsterblock/templates/dnd5e/monsterblock5e.hbs";
-	}
+        static get templateRoot() {
+                return `modules/${MODULE_ID}/templates/dnd5e`;
+        }
+
+        get template() {
+                return `${this.constructor.templateRoot}/monsterblock5e.hbs`;
+        }
 
 	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {
@@ -527,8 +531,8 @@ export default class MonsterBlock5e extends dnd5e.applications.actor.ActorSheet5
 		}
 	}
 	async resetDefaults() {
-		await this.setCurrentTheme(game.settings.get("monsterblock", "default-theme"));
-		this.actor.update({"flags.monsterblock": this.defaultFlags});
+		await this.setCurrentTheme(game.settings.get(MODULE_ID, "default-theme"));
+		this.actor.update({[`flags.${MODULE_ID}`]: this.defaultFlags});
 	}
 	static prop = "A String";
 	static themes = {
@@ -986,9 +990,9 @@ export default class MonsterBlock5e extends dnd5e.applications.actor.ActorSheet5
 		const id = name.dataset.itemId;
 
 		const item = this.actor.items.get(id);
-		const expanded = item.getFlag("monsterblock", "expanded");
+		const expanded = item.getFlag(MODULE_ID, "expanded");
 
-		item.setFlag("monsterblock", "expanded", !expanded);
+		item.setFlag(MODULE_ID, "expanded", !expanded);
 	}
 
 	setWindowClasses(html) {
@@ -1307,42 +1311,43 @@ export default class MonsterBlock5e extends dnd5e.applications.actor.ActorSheet5
 		}
 	}
 	static async preLoadTemplates() {
-		return loadTemplates([
-			// Shared Partials
-			"modules/monsterblock/templates/dnd5e/switches.hbs",
-			"modules/monsterblock/templates/dnd5e/parts/switch.hbs",
-			"modules/monsterblock/templates/dnd5e/parts/trigger.hbs",
+                const root = this.templateRoot;
+                return loadTemplates([
+                        // Shared Partials
+                        `${root}/switches.hbs`,
+                        `${root}/parts/switch.hbs`,
+                        `${root}/parts/trigger.hbs`,
 
 			// Actor Sheet Sections
-			"modules/monsterblock/templates/dnd5e/bio.hbs",
-			"modules/monsterblock/templates/dnd5e/header.hbs",
-			"modules/monsterblock/templates/dnd5e/main.hbs",
-			"modules/monsterblock/templates/dnd5e/collapsibleSection.hbs",
-			"modules/monsterblock/templates/dnd5e/sectionHeader.hbs",
+                        `${root}/bio.hbs`,
+                        `${root}/header.hbs`,
+                        `${root}/main.hbs`,
+                        `${root}/collapsibleSection.hbs`,
+                        `${root}/sectionHeader.hbs`,
 
 			// Actor Sheet Partials
-			"modules/monsterblock/templates/dnd5e/parts/header/identity.hbs",
-			"modules/monsterblock/templates/dnd5e/parts/header/attributes1.hbs",
-			"modules/monsterblock/templates/dnd5e/parts/header/abilities.hbs",
-			"modules/monsterblock/templates/dnd5e/parts/header/attributes2.hbs",
+                        `${root}/parts/header/identity.hbs`,
+                        `${root}/parts/header/attributes1.hbs`,
+                        `${root}/parts/header/abilities.hbs`,
+                        `${root}/parts/header/attributes2.hbs`,
 
-			"modules/monsterblock/templates/dnd5e/parts/header/attributes/armorclass.hbs",
-			"modules/monsterblock/templates/dnd5e/parts/header/attributes/hitpoints.hbs",
-			"modules/monsterblock/templates/dnd5e/parts/header/attributes/movement.hbs",
-			"modules/monsterblock/templates/dnd5e/parts/header/attributes/saves.hbs",
-			"modules/monsterblock/templates/dnd5e/parts/header/attributes/skills.hbs",
-			"modules/monsterblock/templates/dnd5e/parts/header/attributes/senses.hbs",
-			"modules/monsterblock/templates/dnd5e/parts/header/attributes/damage.hbs",
+                        `${root}/parts/header/attributes/armorclass.hbs`,
+                        `${root}/parts/header/attributes/hitpoints.hbs`,
+                        `${root}/parts/header/attributes/movement.hbs`,
+                        `${root}/parts/header/attributes/saves.hbs`,
+                        `${root}/parts/header/attributes/skills.hbs`,
+                        `${root}/parts/header/attributes/senses.hbs`,
+                        `${root}/parts/header/attributes/damage.hbs`,
 
-			"modules/monsterblock/templates/dnd5e/parts/main/spellcasting.hbs",
-			"modules/monsterblock/templates/dnd5e/parts/main/attack.hbs",
-			"modules/monsterblock/templates/dnd5e/parts/main/legendaryActs.hbs",
-			"modules/monsterblock/templates/dnd5e/parts/main/lairActs.hbs",
+                        `${root}/parts/main/spellcasting.hbs`,
+                        `${root}/parts/main/attack.hbs`,
+                        `${root}/parts/main/legendaryActs.hbs`,
+                        `${root}/parts/main/lairActs.hbs`,
 
-			"modules/monsterblock/templates/dnd5e/parts/menuItem.hbs",
-			"modules/monsterblock/templates/dnd5e/parts/resource.hbs",
-			"modules/monsterblock/templates/dnd5e/parts/featureBlock.hbs",
-			"modules/monsterblock/templates/dnd5e/parts/damageRoll.hbs"
+                        `${root}/parts/menuItem.hbs`,
+                        `${root}/parts/resource.hbs`,
+                        `${root}/parts/featureBlock.hbs`,
+                        `${root}/parts/damageRoll.hbs`
 
 		]);
 	}

@@ -7,7 +7,7 @@
 		{{/if}}
 		<span class="item-name" data-item-id="{{item._id}}">{{item.name}}</span>
 		{{~#if item.hasresource~}}
-			{{> "modules/monsterblock/templates/dnd5e/parts/resource.hbs" resource=item.resource}}
+			{{> "modules/monsterblocks-openai/templates/dnd5e/parts/resource.hbs" resource=item.resource}}
 		{{~/if~}}
 		{{localize "MOBLOKS5E.NameDescriptionSep"}}
 		{{#if @root.flags.attack-descriptions}}
@@ -31,11 +31,11 @@
 						{{#unless @first}}
 							{{localize "MOBLOKS5E.MultiDamageAttackConjunctionPlus"}}
 						{{/unless}}
-						{{> "modules/monsterblock/templates/dnd5e/parts/damageRoll.hbs" id=../item._id text=part.text}}
+						{{> "modules/monsterblocks-openai/templates/dnd5e/parts/damageRoll.hbs" id=../item._id text=part.text}}
 						{{localize "MOBLOKS5E.damage"}}
 						{{~#if (and @first ../item.description.versatile)~}}
 							{{localize "MOBLOKS5E.Comma"}}
-							{{> "modules/monsterblock/templates/dnd5e/parts/damageRoll.hbs"
+							{{> "modules/monsterblocks-openai/templates/dnd5e/parts/damageRoll.hbs"
 								id=../item._id
 								versatile=true
 								text=(	localize "MOBLOKS5E.AttackVersatile"

@@ -1,10 +1,19 @@
-![](https://img.shields.io/badge/Foundry-v9-informational)
+![](https://img.shields.io/badge/Foundry-v13-informational)
 ![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fmonsterblock&colorB=4aa94a)
-![Latest Release Download Count](https://img.shields.io/github/downloads/zeel01/MonsterBlocks/latest/monsterblock.zip)
+![Latest Release Download Count](https://img.shields.io/github/downloads/openai-assistant/MonsterBlocks/latest/module.zip)
 
-# Monster Blocks
+# Monster Blocks (Fork openai)
 
-Monster Blocks is an NPC sheet for FoundryVTT designed to faithfully reproduce the appearance of D&D 5e monster statblocks.
+Monster Blocks is an NPC sheet for FoundryVTT designed to faithfully reproduce the appearance of D&D 5e monster statblocks. This fork updates the module for Foundry VTT v13 / dnd5e 5.x while preserving the original look and feel.
+
+## Installation
+
+- **Manifest URL:** `https://github.com/openai-assistant/MonsterBlocks/releases/latest/download/module.json`
+- **Foundry VTT Compatibility:** 10+ (verified on 13)
+- **dnd5e Compatibility:** 5.0.0+
+- **Dependencies:** Requires the [_mathjs](https://github.com/League-of-Foundry-Developers/mathjs-lib) module. A runtime warning is displayed if Math.js is not detected.
+
+> Para quem prefere um pacote manual, o release contém `module.json` e `module.zip` prontos para instalação offline.
 
 **Quick Settings** are accessed through the **cog menu in the upper left corner**. This menu gives access to key functions such as toggling certain features, and themes.
 

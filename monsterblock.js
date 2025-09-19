@@ -1,20 +1,32 @@
 import MonsterBlock5e from "./scripts/dnd5e/MonsterBlock5e.js";
-import { debug } from "./scripts/utilities.js";
+import { debug, MODULE_ID } from "./scripts/utilities.js";
 import { inputExprInitHandler } from "./input-expressions/handler.js";
 import PopupHandler from "./scripts/PopupHandler.js"
 import Flags5e from "./scripts/dnd5e/Flags5e.js";
 
 
 Hooks.once("init", () => {
-	Handlebars.registerHelper(MonsterBlock5e.handlebarsHelpers); // Register all the helpers needed for Handlebars
+        Handlebars.registerHelper(MonsterBlock5e.handlebarsHelpers); // Register all the helpers needed for Handlebars
 
-	inputExprInitHandler();
+        inputExprInitHandler();
 
-	console.log(`Monster Block | %cInitialized.`, "color: orange");
+        DocumentSheetConfig.registerSheet(Actor, "dnd5e", MonsterBlock5e, {
+                types: ["npc"],
+                makeDefault: false,
+                label: "MOBLOKS5E.MonsterBlocks"
+        });
+
+        console.log(`Monster Block | %cInitialized.`, "color: orange");
 });
 
 Hooks.once("ready", () => {
-	MonsterBlock5e.getQuickInserts();
+        if (!globalThis.math) {
+                const warning = "Monster Blocks: Math.js não detectado. Instale o módulo _mathjs ou habilite o shim.";
+                ui.notifications?.warn(warning);
+                console.warn(warning);
+        }
+
+        MonsterBlock5e.getQuickInserts();
 
 	MonsterBlock5e.preLoadTemplates();
 
@@ -34,7 +46,7 @@ Hooks.once("ready", () => {
 		)
 	);
 
-	game.settings.register("monsterblock", "max-height-offset", {
+	game.settings.register(MODULE_ID, "max-height-offset", {
 		name: game.i18n.localize("MOBLOKS5E.max-height-offset.settings.name"),
 		hint: game.i18n.localize("MOBLOKS5E.max-height-offset.settings.hint"),
 		scope: "world",
@@ -53,7 +65,7 @@ Hooks.once("ready", () => {
 		themeChoices[theme] =
 			game.i18n.localize(MonsterBlock5e.themes[theme].name);
 
-	game.settings.register("monsterblock", "default-theme", {
+	game.settings.register(MODULE_ID, "default-theme", {
 		name: game.i18n.localize("MOBLOKS5E.default-theme.settings.name"),
 		hint: game.i18n.localize("MOBLOKS5E.default-theme.settings.hint"),
 		scope: "world",
@@ -78,8 +90,8 @@ Hooks.on("renderMonsterBlock5e", (monsterblock, html, data) => {	// When the she
 		monsterblock, 	// The Application window
 		"form.flexcol",
 		monsterblock.options.width,													// From default options
-		window.innerHeight - game.settings.get("monsterblock", "max-height-offset"),	// Configurable offset, default is 72 to give space for the macro bar and 10px of padding.
-	//	(window.innerHeight - game.settings.get("monsterblock", "max-height-offset")) * (1 / monsterblock.flags.scale),	// Configurable offset, default is 72 to give space for the macro bar and 10px of padding.
+		window.innerHeight - game.settings.get(MODULE_ID, "max-height-offset"),	// Configurable offset, default is 72 to give space for the macro bar and 10px of padding.
+	//	(window.innerHeight - game.settings.get(MODULE_ID, "max-height-offset")) * (1 / monsterblock.flags.scale),	// Configurable offset, default is 72 to give space for the macro bar and 10px of padding.
 		8,
 		monsterblock.flags.scale																				// The margins on the window content are 8px
 	);
@@ -108,18 +120,12 @@ Hooks.on("renderActorSheet5eNPC", (sheet) => {
 	});
 });
 
-Actors.registerSheet("dnd5e", MonsterBlock5e, {
-    types: ["npc"],
-    makeDefault: false,
-	label: "MOBLOKS5E.MonsterBlocks"
-});
-
 Hooks.on("renderActorSheet", () => {	// This is just for debugging, it prevents this sheet's template from being cached.
 	if (!debug.enabled) return;
 	window._templateCache = [];
 });
 
 Hooks.once("devModeReady", ({ registerPackageDebugFlag }) => {
-	registerPackageDebugFlag("monsterblock", "level");
+	registerPackageDebugFlag(MODULE_ID, "level");
 	if (debug.INFO) console.log(`Monster Block | Debug level: ${debug.level}`);
 });

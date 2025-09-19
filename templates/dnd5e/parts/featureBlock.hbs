@@ -28,7 +28,7 @@
 			{{~/if~}}
 			{{~#unless legendaryactions~}}
 				{{~#if item.hasresource~}}
-					{{> "modules/monsterblock/templates/dnd5e/parts/resource.hbs" resource=item.resource}}
+					{{> "modules/monsterblocks-openai/templates/dnd5e/parts/resource.hbs" resource=item.resource}}
 				{{~/if~}}
 			{{~/unless~}}{{localize "MOBLOKS5E.NameDescriptionSep"}}
 		{{~else~}}

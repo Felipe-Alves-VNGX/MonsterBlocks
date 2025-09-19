@@ -1,7 +1,7 @@
 {
-  "name": "monsterblock",
-  "version": "2.0.0",
-  "description": "An FVTT module that emulates the apperance of 5e monster statblocks.",
+  "name": "monsterblocks-openai",
+  "version": "3.5.1-f1",
+  "description": "Fork do Monster Blocks ajustado para Foundry VTT v13.",
   "main": "monsterblock.js",
   "directories": {
     "example": "examples"
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zeel01/MonsterBlocks.git"
+    "url": "git+https://github.com/openai-assistant/MonsterBlocks.git"
   },
   "author": "zeel",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zeel01/MonsterBlocks/issues"
+    "url": "https://github.com/openai-assistant/MonsterBlocks/issues"
   },
-  "homepage": "https://github.com/zeel01/MonsterBlocks#readme",
+  "homepage": "https://github.com/openai-assistant/MonsterBlocks#readme",
   "devDependencies": {
     "eslint": "^7.9.0",
     "foundry-pc-types": "gitlab:foundry-projects/foundry-pc/foundry-pc-types",

@@ -1,4 +1,7 @@
 import { InputAdapter } from "../input-expressions/handler.js"
+
+export const MODULE_ID = "monsterblocks-openai";
+
 export class debug {
 	
 	/**
@@ -9,7 +12,7 @@ export class debug {
 	 * @memberof debug
 	 */
 	static get level() {
-		return game.modules.get("_dev-mode")?.api?.getPackageDebugValue("monsterblock", "level") ?? 0;
+                return game.modules.get("_dev-mode")?.api?.getPackageDebugValue(MODULE_ID, "level") ?? 0;
 	}
 
 	/**

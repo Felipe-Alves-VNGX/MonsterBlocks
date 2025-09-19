@@ -3,17 +3,18 @@
 const Gulp = require("gulp");
 const zip = require("gulp-zip");
 
-function createRelease(cb) {
+function createRelease() {
 	return Gulp.src([
-		"module.json",
-		"monsterblock.js",
-		"monsterblock.css",
-		"actor-sheet.html",
-		"lang/*",
-		"input-expressions/handler.js"
+		"**",
+		"!node_modules{,/**}",
+		"!dist{,/**}",
+		"!*.zip",
+		"!gulpfile.js",
+		"!package-lock.json",
+		"!package.json"
 	], { base: "." })
-		.pipe(zip("monsterblock.zip"))
-		.pipe(Gulp.dest("./"));
+	.pipe(zip("module.zip"))
+	.pipe(Gulp.dest("./"));
 }
 
 exports.zip = createRelease;

@@ -1,7 +1,7 @@
 // Swap the sheet of the selected token between this and the standard 5e NPS sheet.
 
 (async ()=> {
-	await token.actor.sheet.close();
+        await token.actor.sheet.close();
 	if (token.actor.getFlag("core", "sheetClass") === "dnd5e.ActorSheet5eNPC") {
 		await token.actor.setFlag("core", "sheetClass", "dnd5e.MonsterBlock5e")
 	}
@@ -31,22 +31,25 @@
 
 // Changes the theme of all actors in the Actor Directory to your default setting
 // This will not effect unlinked actors in any scene
+const MODULE_ID = "monsterblocks-openai";
+
 Actor.update([...game.actors].reduce((acc, a) => {
-	if (a.data?.flags?.monsterblock) {
+	const moduleFlags = a.flags?.[MODULE_ID];
+	if (moduleFlags) {
 		let act = duplicate(a);
-		act.flags.monsterblock["theme-choice"] = game.settings.get("monsterblock", "default-theme");
+		act.flags[MODULE_ID]["theme-choice"] = game.settings.get(MODULE_ID, "default-theme");
 		acc.push(act);
 	}
 	return acc;
 }, []));
 
 (async () => {
-	console.log("Macro | Setting all Monster Block token themes to ", game.settings.get("monsterblock", "default-theme"));
+	console.log("Macro | Setting all Monster Block token themes to ", game.settings.get(MODULE_ID, "default-theme"));
 	console.time("Macro | Theme conversion completed in");
 	for (let tkn of canvas.tokens.objects.children) {
-		if (tkn.actor.getFlag("monsterblock", "theme-choice")) {
+		if (tkn.actor.getFlag(MODULE_ID, "theme-choice")) {
 			await tkn.actor.sheet.close();
-			await tkn.actor.setFlag("monsterblock", "theme-choice", game.settings.get("monsterblock", "default-theme"))
+			await tkn.actor.setFlag(MODULE_ID, "theme-choice", game.settings.get(MODULE_ID, "default-theme"))
 		}
 	}
 	console.log("Macro | ...Complete");

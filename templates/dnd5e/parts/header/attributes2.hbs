@@ -1,6 +1,6 @@
 {{! Attributes Menu }}
 	{{#if flags.editing}}
-		{{> "modules/monsterblock/templates/dnd5e/parts/menuItem.hbs" item=menus.attributes}}
+		{{> "modules/monsterblocks-openai/templates/dnd5e/parts/menuItem.hbs" item=menus.attributes}}
 	{{/if}}
 
 <ul class="attributes">
@@ -9,7 +9,7 @@
 	{{#if (or info.hasSaveProfs flags.show-not-prof flags.show-skill-save)}}
 		<li class="monster-saves attribute">
 			<span class="attribute-wrapper">
-				{{> "modules/monsterblock/templates/dnd5e/parts/header/attributes/saves.hbs"}}
+				{{> "modules/monsterblocks-openai/templates/dnd5e/parts/header/attributes/saves.hbs"}}
 			</span>
 		</li>
 	{{/if}}
@@ -18,25 +18,25 @@
 	{{#if (or info.hasSkills flags.show-not-prof flags.show-skill-save)}}
 		<li class="monster-skills attribute">
 			<span class="attribute-wrapper">
-				{{> "modules/monsterblock/templates/dnd5e/parts/header/attributes/skills.hbs"}}
+				{{> "modules/monsterblocks-openai/templates/dnd5e/parts/header/attributes/skills.hbs"}}
 			</span>
 		</li>
 	{{/if}}
 
 {{! Damage & Condition Resistances & Immunities}}
-	{{> "modules/monsterblock/templates/dnd5e/parts/header/attributes/damage.hbs"
+	{{> "modules/monsterblocks-openai/templates/dnd5e/parts/header/attributes/damage.hbs"
 		trait=system.traits.dv
 		label="DND5E.DamVuln"
 	}}
-	{{> "modules/monsterblock/templates/dnd5e/parts/header/attributes/damage.hbs"
+	{{> "modules/monsterblocks-openai/templates/dnd5e/parts/header/attributes/damage.hbs"
 		trait=system.traits.dr
 		label="DND5E.DamRes"
 	}}
-	{{> "modules/monsterblock/templates/dnd5e/parts/header/attributes/damage.hbs"
+	{{> "modules/monsterblocks-openai/templates/dnd5e/parts/header/attributes/damage.hbs"
 		trait=system.traits.di
 		label="DND5E.DamImm"
 	}}
-	{{> "modules/monsterblock/templates/dnd5e/parts/header/attributes/damage.hbs"
+	{{> "modules/monsterblocks-openai/templates/dnd5e/parts/header/attributes/damage.hbs"
 		trait=system.traits.ci
 		label="DND5E.ConImm"
 	}}
@@ -44,7 +44,7 @@
 {{! Senses }}
 	<li class="attribute">
 		<span class="attribute-wrapper">
-			{{> "modules/monsterblock/templates/dnd5e/parts/header/attributes/senses.hbs"}}
+			{{> "modules/monsterblocks-openai/templates/dnd5e/parts/header/attributes/senses.hbs"}}
 		</span>
 	</li>
 

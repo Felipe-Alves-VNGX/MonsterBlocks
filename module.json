@@ -1,38 +1,43 @@
 {
-	"id": "monsterblock",
-	"title": "Monster Blocks",
-	"description": "An NPC sheet designed to emulate standard 5e monster stat blocks as faithfully as possible.",
-	"author": "zeel",
-	"authors": [
-		{
-			"name": "zeel",
-			"email": "zeel02@gmail.com",
-			"url": "https://github.com/zeel01",
-			"discord": "zeel#4200"
-		}
-	],
-	"version": "3.6.0",
-	"compatibility": {
-		"minimum": "10",
-		"verified": "12"
-	},
-	"relationships": {
-		"systems": [
-			{
-				"id": "dnd5e",
-				"compatibility": {
-					"verified": "4.1.2"
-				}
-			}
-		],
-		"requires": [
-			{
-				"id": "_mathjs",
-				"type": "module",
-				"manifest": "https://raw.githubusercontent.com/League-of-Foundry-Developers/mathjs-lib/master/module.json"
-			}
-		]
-	},
+        "id": "monsterblocks-openai",
+        "title": "Monster Blocks (Fork openai)",
+        "description": "Fork do Monster Blocks ajustado para Foundry v13.",
+        "author": "zeel",
+        "authors": [
+                {
+                        "name": "zeel",
+                        "email": "zeel02@gmail.com",
+                        "url": "https://github.com/zeel01",
+                        "discord": "zeel#4200"
+                },
+                {
+                        "name": "OpenAI Assistant",
+                        "url": "https://github.com/openai-assistant"
+                }
+        ],
+        "version": "3.5.1-f1",
+        "compatibility": {
+                "minimum": "10",
+                "verified": "13"
+        },
+        "relationships": {
+                "systems": [
+                        {
+                                "id": "dnd5e",
+                                "type": "system",
+                                "compatibility": {
+                                        "minimum": "5.0.0"
+                                }
+                        }
+                ],
+                "requires": [
+                        {
+                                "id": "_mathjs",
+                                "type": "module",
+                                "manifest": "https://raw.githubusercontent.com/League-of-Foundry-Developers/mathjs-lib/master/module.json"
+                        }
+                ]
+        },
 	"esmodules": [
 		"monsterblock.js"
 	],
@@ -61,13 +66,13 @@
 			"path": "lang/pt-BR.json"
 		}
 	],
-	"manifest": "https://github.com/zeel01/MonsterBlocks/releases/latest/download/module.json",
-	"url": "https://github.com/zeel01/MonsterBlocks",
-	"download": "https://github.com/zeel01/MonsterBlocks/releases/latest/download/monsterblock.zip",
-	"readme": "https://github.com/zeel01/MonsterBlocks/blob/master/readme.md",
-	"bugs": "https://github.com/zeel01/MonsterBlocks/issues",
-	"allowBugReporter": true,
-	"changelog": "https://github.com/zeel01/MonsterBlocks/releases",
+        "manifest": "https://github.com/openai-assistant/MonsterBlocks/releases/latest/download/module.json",
+        "url": "https://github.com/openai-assistant/MonsterBlocks",
+        "download": "https://github.com/openai-assistant/MonsterBlocks/releases/download/3.5.1-f1/module.zip",
+        "readme": "https://github.com/openai-assistant/MonsterBlocks/blob/master/readme.md",
+        "bugs": "https://github.com/openai-assistant/MonsterBlocks/issues",
+        "allowBugReporter": true,
+        "changelog": "https://github.com/openai-assistant/MonsterBlocks/releases",
 	"media": [
 		{
 			"type": "cover",

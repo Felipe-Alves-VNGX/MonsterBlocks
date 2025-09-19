@@ -7,7 +7,7 @@
 		{{/if}}
 		<span class="item-name" data-item-id="{{casting._id}}">{{casting.name}}</span>.
 		{{~#if item.hasresource~}}
-			{{> "modules/monsterblock/templates/dnd5e/parts/resource.hbs" resource=item.resource}}
+			{{> "modules/monsterblocks-openai/templates/dnd5e/parts/resource.hbs" resource=item.resource}}
 		{{~/if~}}
 		<span class="description">
 			{{{casting.description.level}}}
@@ -48,7 +48,7 @@
 							{{/if}}
 							<span class="spell-name">{{spell.name}}</span>
 							{{~#if spell.hasresource~}}
-								{{> "modules/monsterblock/templates/dnd5e/parts/resource.hbs" resource=spell.resource}}
+								{{> "modules/monsterblocks-openai/templates/dnd5e/parts/resource.hbs" resource=spell.resource}}
 							{{~/if~}}
 						</li>
 					{{/each}}
