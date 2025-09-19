@@ -57,17 +57,17 @@
 			"path": "lang/pt-BR.json"
 		}
 	],
-        "manifest": "https://github.com/Felipe-Alves-VNGX/MonsterBlocks/releases/latest/download/module.json",
+        "manifest": "https://raw.githubusercontent.com/Felipe-Alves-VNGX/MonsterBlocks/main/module.json",
         "url": "https://github.com/Felipe-Alves-VNGX/MonsterBlocks",
-        "download": "https://github.com/Felipe-Alves-VNGX/MonsterBlocks/releases/latest/download/monsterblock.zip",
-        "readme": "https://github.com/Felipe-Alves-VNGX/MonsterBlocks/blob/master/readme.md",
+        "download": "https://github.com/Felipe-Alves-VNGX/MonsterBlocks/archive/refs/heads/main.zip",
+        "readme": "https://github.com/Felipe-Alves-VNGX/MonsterBlocks/blob/main/readme.md",
         "bugs": "https://github.com/Felipe-Alves-VNGX/MonsterBlocks/issues",
         "allowBugReporter": true,
         "changelog": "https://github.com/Felipe-Alves-VNGX/MonsterBlocks/releases",
         "media": [
                 {
                         "type": "cover",
-                        "url": "https://raw.githubusercontent.com/Felipe-Alves-VNGX/MonsterBlocks/master/examples/ancientRedDragon_5.png"
+                        "url": "https://raw.githubusercontent.com/Felipe-Alves-VNGX/MonsterBlocks/main/examples/ancientRedDragon_5.png"
                 },
                 {
                         "type": "icon",
