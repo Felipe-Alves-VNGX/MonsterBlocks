@@ -1145,12 +1145,13 @@ export default class MonsterBlock5e extends dnd5e.applications.actor.ActorSheet5
 	handleNumberChange(entity, key, input, event) {
 		const current = foundry.utils.getProperty(entity, key);
 
-		if (window.math?.roll)
-			return inputExpression(new ContentEditableAdapter(input), current, {
-				entity, event,
-				data: this.templateData,
-				actor: this.object
-			});
+                const math = globalThis.math;
+                if (math?.roll)
+                        return inputExpression(new ContentEditableAdapter(input), current, {
+                                entity, event,
+                                data: this.templateData,
+                                actor: this.object
+                        });
 		else {
 			input.innerText = current;
 			const msg = "Input Expressions for Monster Blocks appears to be missing or has failed to initialize.";

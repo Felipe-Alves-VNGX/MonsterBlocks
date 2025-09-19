@@ -2,40 +2,36 @@
 	"id": "monsterblock",
 	"title": "Monster Blocks",
 	"description": "An NPC sheet designed to emulate standard 5e monster stat blocks as faithfully as possible.",
-	"author": "zeel",
-	"authors": [
-		{
-			"name": "zeel",
-			"email": "zeel02@gmail.com",
-			"url": "https://github.com/zeel01",
-			"discord": "zeel#4200"
-		}
-	],
+        "author": "Felipe-Alves-VNGX",
+        "authors": [
+                {
+                        "name": "Felipe-Alves-VNGX",
+                        "email": "Felipe-Alves-VNGX@example.com",
+                        "url": "https://github.com/Felipe-Alves-VNGX",
+                        "discord": "Felipe-Alves-VNGX"
+                }
+        ],
 	"version": "3.6.0",
 	"compatibility": {
 		"minimum": "10",
 		"verified": "12"
 	},
-	"relationships": {
-		"systems": [
-			{
-				"id": "dnd5e",
-				"compatibility": {
-					"verified": "4.1.2"
-				}
-			}
-		],
-		"requires": [
-			{
-				"id": "_mathjs",
-				"type": "module",
-				"manifest": "https://raw.githubusercontent.com/League-of-Foundry-Developers/mathjs-lib/master/module.json"
-			}
-		]
-	},
-	"esmodules": [
-		"monsterblock.js"
-	],
+        "relationships": {
+                "systems": [
+                        {
+                                "id": "dnd5e",
+                                "compatibility": {
+                                        "verified": "4.1.2"
+                                }
+                        }
+                ]
+        },
+        "scripts": [
+                "vendor/mathjs/math.js"
+        ],
+        "esmodules": [
+                "monsterblock.js"
+        ],
 	"styles": [
 		"monsterblock.css"
 	],
@@ -61,21 +57,21 @@
 			"path": "lang/pt-BR.json"
 		}
 	],
-	"manifest": "https://github.com/zeel01/MonsterBlocks/releases/latest/download/module.json",
-	"url": "https://github.com/zeel01/MonsterBlocks",
-	"download": "https://github.com/zeel01/MonsterBlocks/releases/latest/download/monsterblock.zip",
-	"readme": "https://github.com/zeel01/MonsterBlocks/blob/master/readme.md",
-	"bugs": "https://github.com/zeel01/MonsterBlocks/issues",
-	"allowBugReporter": true,
-	"changelog": "https://github.com/zeel01/MonsterBlocks/releases",
-	"media": [
-		{
-			"type": "cover",
-			"url": "https://raw.githubusercontent.com/zeel01/MonsterBlocks/master/examples/ancientRedDragon_5.png"
-		},
-		{
-			"type": "icon",
-			"url": "https://avatars2.githubusercontent.com/u/1721836"
-		}
-	]
+        "manifest": "https://github.com/Felipe-Alves-VNGX/MonsterBlocks/releases/latest/download/module.json",
+        "url": "https://github.com/Felipe-Alves-VNGX/MonsterBlocks",
+        "download": "https://github.com/Felipe-Alves-VNGX/MonsterBlocks/releases/latest/download/monsterblock.zip",
+        "readme": "https://github.com/Felipe-Alves-VNGX/MonsterBlocks/blob/master/readme.md",
+        "bugs": "https://github.com/Felipe-Alves-VNGX/MonsterBlocks/issues",
+        "allowBugReporter": true,
+        "changelog": "https://github.com/Felipe-Alves-VNGX/MonsterBlocks/releases",
+        "media": [
+                {
+                        "type": "cover",
+                        "url": "https://raw.githubusercontent.com/Felipe-Alves-VNGX/MonsterBlocks/master/examples/ancientRedDragon_5.png"
+                },
+                {
+                        "type": "icon",
+                        "url": "https://avatars.githubusercontent.com/Felipe-Alves-VNGX"
+                }
+        ]
 }

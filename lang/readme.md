@@ -3,7 +3,7 @@ First, let me thank you for taking your time to translate this module.
 
 I have tried my best to make it possible to localize Monster Blocks completely,
 but it's more than likely that I have missed something.
-Feel free to post and issue or ping @zeel on Discord if there is anything that needs improved.
+Feel free to post and issue or ping @Felipe-Alves-VNGX on Discord if there is anything that needs improved.
 
 ## Theme Names
 Theme names are intended to sound slightly more fancy than just "dark" and "blue" but it is not nessesary
@@ -40,7 +40,7 @@ if the target language doesn't need these, make the array empty `[]`.
 If you need more the code will handle that just fine, add as many as needed.
 
 If the sheet doens't seem to be able to handle the needs of the language,
-please post an issue on [Github](https://github.com/zeel01/MonsterBlocks/issues)
+please post an issue on [Github](https://github.com/Felipe-Alves-VNGX/MonsterBlocks/issues)
 I will see if there is a way to handle the need.
 
 # Changelog
